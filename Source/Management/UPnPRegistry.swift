@@ -125,20 +125,34 @@ public class UPnPRegistry: NSObject {
     
     /// Should be called on the background thread as every instance it creates parses XML
     private func createUPnPObject(usn usn: UniqueServiceName, descriptionURL: NSURL, descriptionXML: NSData) -> AbstractUPnP? {
-        let upnpClass: AbstractUPnP.Type
-        let urn = usn.urn! // checked for nil earlier
-        
-        if let registeredClass = _upnpClasses[urn] {
-            upnpClass = registeredClass
-        } else if urn.rangeOfString("urn:schemas-upnp-org:device") != nil {
-            upnpClass = AbstractUPnPDevice.self
-        } else if urn.rangeOfString("urn:schemas-upnp-org:service") != nil {
-            upnpClass = AbstractUPnPService.self
-        } else {
-            upnpClass = AbstractUPnP.self
+
+        if usn.urn == nil {
+            let device = AbstractUPnPDevice.init(usn: usn, descriptionURL: descriptionURL, descriptionXML: descriptionXML)
+            
+            return device
         }
         
-        return upnpClass.init(usn: usn, descriptionURL: descriptionURL, descriptionXML: descriptionXML)
+        else {
+            
+            return nil;
+            
+            /*
+            let upnpClass: AbstractUPnP.Type
+            let urn = usn.urn! // checked for nil earlier
+            
+            if let registeredClass = _upnpClasses[urn] {
+                upnpClass = registeredClass
+            } else if urn.rangeOfString("urn:schemas-upnp-org:device") != nil {
+                upnpClass = AbstractUPnPDevice.self
+            } else if urn.rangeOfString("urn:schemas-upnp-org:service") != nil {
+                upnpClass = AbstractUPnPService.self
+            } else {
+                upnpClass = AbstractUPnP.self
+            }
+            
+            return upnpClass.init(usn: usn, descriptionURL: descriptionURL, descriptionXML: descriptionXML)
+            */
+        }
     }
 }
 
@@ -184,6 +198,15 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
             var upnpObjectsToKeep = [AbstractUPnP]()
             for ssdpDiscovery in ssdpDiscoveries {
                 // only concerned with objects with a device or service type urn
+
+                switch ssdpDiscovery.type {
+                case .Roku:
+                    self.getUPnPDescription(forSSDPDiscovery: ssdpDiscovery)
+                default:
+                    LogVerbose("Discovery type will not be handled")
+                }
+                
+                /*
                 if ssdpDiscovery.usn.urn != nil {
                     switch ssdpDiscovery.type {
                     case .Device, .Service:
@@ -196,6 +219,7 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
                         LogVerbose("Discovery type will not be handled")
                     }
                 }
+                 */
             }
             
             self.process(upnpObjectsToKeep: upnpObjectsToKeep, upnpObjects: &self._upnpObjects)
@@ -234,8 +258,10 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
         guard upnpObjects[usn] == nil else {
             return
         }
+        
+        let newObject = createUPnPObject(usn: usn, descriptionURL: ssdpDiscovery.descriptionURL, descriptionXML: descriptionXML)
 
-        if let newObject = createUPnPObject(usn: usn, descriptionURL: ssdpDiscovery.descriptionURL, descriptionXML: descriptionXML) {
+        if newObject != nil {
             guard newObject is AbstractUPnPDevice || newObject is AbstractUPnPService else {
                 return
             }
@@ -253,7 +279,7 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
             let notificationComponents = notificationType.notificationComponents()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self._upnpObjectsMainThreadCopy = upnpObjectsCopy
-                NSNotificationCenter.defaultCenter().postNotificationName(notificationComponents.objectAddedNotificationName, object: self, userInfo: [notificationComponents.objectKey: newObject])
+                NSNotificationCenter.defaultCenter().postNotificationName(notificationComponents.objectAddedNotificationName, object: self, userInfo: [notificationComponents.objectKey: newObject!])
             })
         }
     }

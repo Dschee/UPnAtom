@@ -22,6 +22,10 @@
 //  SOFTWARE.
 
 public enum SSDPTypeConstant: String {
+    
+    case Roku = "roku:ecp"
+
+    /*
     // General
     case All = "ssdp:all"
     case RootDevice = "upnp:rootdevice"
@@ -33,18 +37,29 @@ public enum SSDPTypeConstant: String {
     case ConnectionManager1Service = "urn:schemas-upnp-org:service:ConnectionManager:1"
     case RenderingControl1Service = "urn:schemas-upnp-org:service:RenderingControl:1"
     case AVTransport1Service = "urn:schemas-upnp-org:service:AVTransport:1"
+    */
 }
 
 enum SSDPType: RawRepresentable {
+    
+    case Roku
+    
+    /*
     case All
     case RootDevice
     case UUID(String)
     case Device(String)
     case Service(String)
+     */
     
     typealias RawValue = String
     
     init?(rawValue: RawValue) {
+        if rawValue == "roku:ecp" {
+            self = .Roku
+        }
+        
+        /*
         if rawValue == "ssdp:all" {
             self = .All
         } else if rawValue == "upnp:rootdevice" {
@@ -55,9 +70,13 @@ enum SSDPType: RawRepresentable {
             self = .Device(rawValue)
         } else if rawValue.rangeOfString(":service:") != nil {
             self = .Service(rawValue)
-        } else {
+ }            */
+
+        
+        else {
             return nil
         }
+ 
     }
     
     init?(typeConstant: SSDPTypeConstant) {
@@ -66,6 +85,10 @@ enum SSDPType: RawRepresentable {
     
     var rawValue: RawValue {
         switch self {
+        case .Roku:
+            return "roku:ecp"
+            
+        /*
         case .All:
             return "ssdp:all"
         case .RootDevice:
@@ -76,7 +99,10 @@ enum SSDPType: RawRepresentable {
             return rawValue
         case .Service(let rawValue):
             return rawValue
+        */
+            
         }
+
     }
 }
 
@@ -94,6 +120,10 @@ extension SSDPType: Hashable {
 
 func ==(lhs: SSDPType, rhs: SSDPType) -> Bool {
     switch (lhs, rhs) {
+    case (.Roku, .Roku):
+        return true
+        
+    /*
     case (.All, .All):
         return true
     case (.RootDevice, .RootDevice):
@@ -106,5 +136,7 @@ func ==(lhs: SSDPType, rhs: SSDPType) -> Bool {
         return lhsRawValue == rhsRawValue
     default:
         return false
+    */
+        
     }
 }

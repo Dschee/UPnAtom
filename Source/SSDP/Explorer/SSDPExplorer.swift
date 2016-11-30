@@ -66,7 +66,12 @@ class SSDPExplorer {
         // Configure unicast socket
         // Bind to address on the specified interface to a random port to receive unicast datagrams
         do {
-            try unicastSocket.bindToPort(0, interface: interface)
+            try (
+                // NOTE: FIX ADDED BY YIDIO - Set enable reuse port to true
+                unicastSocket?.enableReusePort(true),
+
+                unicastSocket.bindToPort(0, interface: interface)
+            )
         } catch {
             stopExploring()
             return .Failure(createError("Could not bind socket to port"))
@@ -106,7 +111,7 @@ class SSDPExplorer {
         _types = types
         for type in types {
             if let data = searchRequestData(forType: type) {
-//                println(">>>> SENDING SEARCH REQUEST\n\(NSString(data: data, encoding: NSUTF8StringEncoding))")
+                print(">>>> SENDING SEARCH REQUEST\n\(NSString(data: data, encoding: NSUTF8StringEncoding))")
                 unicastSocket.sendData(data, toHost: SSDPExplorer._multicastGroupAddress, port: SSDPExplorer._multicastUDPPort, withTimeout: -1, tag: type.hashValue)
             }
         }
@@ -127,8 +132,8 @@ class SSDPExplorer {
             "M-SEARCH * HTTP/1.1",
             "HOST: \(SSDPExplorer._multicastGroupAddress):\(SSDPExplorer._multicastUDPPort)",
             "MAN: \"ssdp:discover\"",
-            "ST: \(type.rawValue)",
-            "MX: 3"]
+            "ST: \(type.rawValue)"]  /*,
+            "MX: 3"]*/
         
         if let userAgent = AFHTTPRequestSerializer().valueForHTTPHeaderField("User-Agent") {
             requestBody += ["USER-AGENT: \(userAgent)\r\n\r\n\r\n"]
@@ -159,6 +164,9 @@ class SSDPExplorer {
             /// ST = Search Target - SSDP discovered as a result of using M-SEARCH requests
             ssdpTypeRawValue = (headers["st"] != nil ? headers["st"] : headers["nt"]),
             ssdpType = SSDPType(rawValue: ssdpTypeRawValue) where _types.indexOf(ssdpType) != nil {
+            
+                print("SSDP response headers: \(headers)")
+
                 LogVerbose("SSDP response headers: \(headers)")
                 let discovery = SSDPDiscovery(usn: usn, descriptionURL: locationURL, type: ssdpType)
                 switch messageType {

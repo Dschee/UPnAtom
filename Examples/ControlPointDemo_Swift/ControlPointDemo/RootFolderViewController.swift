@@ -43,6 +43,9 @@ class RootFolderViewController: UIViewController {
         
         // initialize
         UPnAtom.sharedInstance.ssdpTypes = [
+            SSDPTypeConstant.Roku.rawValue,
+            
+            /*
             SSDPTypeConstant.All.rawValue,
             SSDPTypeConstant.MediaServerDevice1.rawValue,
             SSDPTypeConstant.MediaRendererDevice1.rawValue,
@@ -50,6 +53,7 @@ class RootFolderViewController: UIViewController {
             SSDPTypeConstant.ConnectionManager1Service.rawValue,
             SSDPTypeConstant.RenderingControl1Service.rawValue,
             SSDPTypeConstant.AVTransport1Service.rawValue
+            */
         ]
         
         loadArchivedUPnPObjects()

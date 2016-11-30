@@ -77,12 +77,17 @@ public class UPnAtom: NSObject {
     /// Override to use a different default set of UPnP classes. Alternatively, registrations can be replaced, see UPnAtom.upnpRegistry.register()
     class func upnpClasses() -> [(upnpClass: AbstractUPnP.Type, forURN: String)] {
         return [
+            
+            (upnpClass: Roku.self, forURN: "roku:ecp")
+
+            /*
             (upnpClass: MediaRenderer1Device.self, forURN: "urn:schemas-upnp-org:device:MediaRenderer:1"),
             (upnpClass: MediaServer1Device.self, forURN: "urn:schemas-upnp-org:device:MediaServer:1"),
             (upnpClass: AVTransport1Service.self, forURN: "urn:schemas-upnp-org:service:AVTransport:1"),
             (upnpClass: ConnectionManager1Service.self, forURN: "urn:schemas-upnp-org:service:ConnectionManager:1"),
             (upnpClass: ContentDirectory1Service.self, forURN: "urn:schemas-upnp-org:service:ContentDirectory:1"),
             (upnpClass: RenderingControl1Service.self, forURN: "urn:schemas-upnp-org:service:RenderingControl:1")
+            */
         ]
     }
 }
