@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6AABD44644BFEAC8E9C134F63605C863BA435A11",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "28D0BEAAC2DC6927A4F0D7CC3D1B136559362AA2" : 0,
+    "6AABD44644BFEAC8E9C134F63605C863BA435A11" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B7FFD5B3-AAE4-4BDD-B6B4-61362CF949F8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "28D0BEAAC2DC6927A4F0D7CC3D1B136559362AA2" : "..",
+    "6AABD44644BFEAC8E9C134F63605C863BA435A11" : "UPnAtom\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ControlPointDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Examples\/ControlPointDemo_Swift\/ControlPointDemo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yidio\/yidio-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28D0BEAAC2DC6927A4F0D7CC3D1B136559362AA2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yidio\/UPnAtom.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6AABD44644BFEAC8E9C134F63605C863BA435A11"
+    }
+  ]
+}
