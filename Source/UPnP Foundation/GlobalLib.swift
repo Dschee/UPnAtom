@@ -188,12 +188,12 @@ extension NSTimer {
     
     convenience init(timeInterval: NSTimeInterval, repeats: Bool, closure: (() -> Void)) {
         let closureHandler = NSTimerClosureHandler(closure: closure)
-        self.init(timeInterval: timeInterval, target: closureHandler, selector: "fire", userInfo: nil, repeats: repeats)
+        self.init(timeInterval: timeInterval, target: closureHandler, selector: #selector(NSTimerClosureHandler.fire), userInfo: nil, repeats: repeats)
     }
     
     class func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, repeats: Bool, closure: (() -> Void)) -> NSTimer {
         let closureHandler = NSTimerClosureHandler(closure: closure)
-        return self.scheduledTimerWithTimeInterval(timeInterval, target: closureHandler, selector: "fire", userInfo: nil, repeats: repeats)
+        return self.scheduledTimerWithTimeInterval(timeInterval, target: closureHandler, selector: #selector(NSTimerClosureHandler.fire), userInfo: nil, repeats: repeats)
     }
 }
 

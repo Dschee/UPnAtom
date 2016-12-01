@@ -166,7 +166,7 @@ public class ContentDirectory1VideoItem: ContentDirectory1Item {
             var duration: Double = 0
             for durationComponent in durationComponents.reverse() {
                 duration += (durationComponent as NSString).doubleValue * pow(60, count)
-                count++
+                count += 1
             }
             
             self.duration = NSTimeInterval(duration)

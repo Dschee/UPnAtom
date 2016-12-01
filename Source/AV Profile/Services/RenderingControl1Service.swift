@@ -29,7 +29,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "ListPresets", serviceURN: urn, arguments: arguments)
         
-        soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             let responseObject = responseObject as? [String: String]
             success(presetNameList: responseObject?["CurrentPresetNameList"]?.componentsSeparatedByString(",") ?? [String]())
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -44,7 +44,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "SelectPreset", serviceURN: urn, arguments: arguments)
         
-        soapSessionManager.POST(controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error: error)
@@ -201,7 +201,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         // Check if the optional SOAP action "GetVolumeDB" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(volumeDB: Int(String(responseObject?["CurrentVolume"])) ?? 0)
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -224,7 +224,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         // Check if the optional SOAP action "SetVolumeDB" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         failure(error: error)
@@ -245,7 +245,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         // Check if the optional SOAP action "getVolumeDBRange" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(minimumValue: Int(String(responseObject?["MinValue"])) ?? 0, maximumValue: Int(String(responseObject?["MaxValue"])) ?? 0)
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -273,7 +273,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "Get\(stateVariableName)", serviceURN: urn, arguments: arguments)
         
         let performAction = { () -> Void in
-            self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+            self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                 let responseObject = responseObject as? [String: String]
                 success(stateVariableValue: responseObject?["Current\(stateVariableName)"])
                 }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -304,7 +304,7 @@ public class RenderingControl1Service: AbstractUPnPService {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "Set\(stateVariableName)", serviceURN: urn, arguments: arguments)
         
         let performAction = { () -> Void in
-            self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+            self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                 success()
                 }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                     failure(error: error)

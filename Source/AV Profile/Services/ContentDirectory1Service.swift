@@ -28,7 +28,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
     public func getSearchCapabilities(success: (searchCapabilities: String?) -> Void, failure:(error: NSError) -> Void) {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "GetSearchCapabilities", serviceURN: urn, arguments: nil)
         
-        soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             let responseObject = responseObject as? [String: String]
             success(searchCapabilities: responseObject?["SearchCaps"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -39,7 +39,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
     public func getSortCapabilities(success: (sortCapabilities: String?) -> Void, failure:(error: NSError) -> Void) {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "GetSortCapabilities", serviceURN: urn, arguments: nil)
         
-        soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             let responseObject = responseObject as? [String: String]
             success(sortCapabilities: responseObject?["SortCaps"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -50,7 +50,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
     public func getSystemUpdateID(success: (systemUpdateID: String?) -> Void, failure:(error: NSError) -> Void) {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "GetSystemUpdateID", serviceURN: urn, arguments: nil)
         
-        soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             let responseObject = responseObject as? [String: String]
             success(systemUpdateID: responseObject?["Id"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -69,7 +69,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "Browse", serviceURN: urn, arguments: arguments)
         
-        soapSessionManager.POST(controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+        soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 let responseObject = responseObject as? [String: String]
                 
@@ -102,7 +102,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "Search" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         let responseObject = responseObject as? [String: String]
                         
@@ -135,7 +135,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "CreateObject" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         let responseObject = responseObject as? [String: String]
                         
@@ -166,7 +166,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "DestroyObject" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         failure(error: error)
@@ -188,7 +188,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "UpdateObject" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         failure(error: error)
@@ -209,7 +209,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "ImportResource" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(transferID: responseObject?["TransferID"])
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -231,7 +231,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "ExportResource" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(transferID: responseObject?["TransferID"])
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -251,7 +251,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "StopTransferResource" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         failure(error: error)
@@ -270,7 +270,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "GetTransferProgress" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(transferStatus: responseObject?["TransferStatus"], transferLength: responseObject?["TransferLength"], transferTotal: responseObject?["TransferTotal"])
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -290,7 +290,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "DeleteResource" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                         failure(error: error)
@@ -311,7 +311,7 @@ public class ContentDirectory1Service: AbstractUPnPService {
         // Check if the optional SOAP action "CreateReference" is supported
         supportsSOAPAction(actionParameters: parameters) { (isSupported) -> Void in
             if isSupported {
-                self.soapSessionManager.POST(self.controlURL.absoluteString, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
+                self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     let responseObject = responseObject as? [String: String]
                     success(newID: responseObject?["NewID"])
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in

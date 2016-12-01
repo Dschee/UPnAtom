@@ -32,13 +32,13 @@ public class AbstractUPnPService: AbstractUPnP {
     }
     public private(set) var serviceID: String! // TODO: Should ideally be a constant, see Github issue #10
     public var serviceDescriptionURL: NSURL {
-        return NSURL(string: _relativeServiceDescriptionURL.absoluteString, relativeToURL: baseURL)!
+        return NSURL(string: _relativeServiceDescriptionURL.absoluteString!, relativeToURL: baseURL)!
     }
     public var controlURL: NSURL {
-        return NSURL(string: _relativeControlURL.absoluteString, relativeToURL: baseURL)!
+        return NSURL(string: _relativeControlURL.absoluteString!, relativeToURL: baseURL)!
     }
     public var eventURL: NSURL {
-        return NSURL(string: _relativeEventURL.absoluteString, relativeToURL: baseURL)!
+        return NSURL(string: _relativeEventURL.absoluteString!, relativeToURL: baseURL)!
     }
     override public var baseURL: NSURL! {
         if let baseURL = _baseURLFromXML {
@@ -124,7 +124,7 @@ public class AbstractUPnPService: AbstractUPnP {
             let httpSessionManager = AFHTTPSessionManager()
             httpSessionManager.requestSerializer = AFHTTPRequestSerializer()
             httpSessionManager.responseSerializer = AFHTTPResponseSerializer()
-            httpSessionManager.GET(serviceDescriptionURL.absoluteString, parameters: nil, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) in
+            httpSessionManager.GET(serviceDescriptionURL.absoluteString!, parameters: nil, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) in
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                     guard let xmlData = responseObject as? NSData else {
                         completion(serviceDescriptionDocument: nil, defaultPrefix: AbstractUPnPService._serviceDescriptionDefaultPrefix)

@@ -73,7 +73,7 @@ class Player {
         if let item = _playlist?[position] as? ContentDirectory1VideoItem {
             let uri = item.resourceURL.absoluteString
             let instanceID = _avTransportInstanceID
-            mediaRenderer?.avTransportService?.setAVTransportURI(instanceID: instanceID, currentURI: uri, currentURIMetadata: "", success: { () -> Void in
+            mediaRenderer?.avTransportService?.setAVTransportURI(instanceID: instanceID, currentURI: uri!, currentURIMetadata: "", success: { () -> Void in
                 print("URI set succeeded!")
                 self.play({ () -> Void in
                     print("Play command succeeded!")

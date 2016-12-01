@@ -93,7 +93,7 @@ public class UPnPRegistry: NSObject {
                 failure(error: error)
             })
         }
-        _upnpObjectDescriptionSessionManager.GET(upnpArchivable.descriptionURL.absoluteString, parameters: nil, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject?) -> Void in
+        _upnpObjectDescriptionSessionManager.GET(upnpArchivable.descriptionURL.absoluteString!, parameters: nil, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject?) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 guard let xmlData = responseObject as? NSData,
                     usn = UniqueServiceName(rawValue: upnpArchivable.usn),
@@ -195,7 +195,7 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
     func ssdpDiscoveryAdapter(adapter: SSDPDiscoveryAdapter, didUpdateSSDPDiscoveries ssdpDiscoveries: [SSDPDiscovery]) {
         dispatch_barrier_async(_concurrentUPnPObjectQueue, { () -> Void in
             self._ssdpDiscoveryCache = ssdpDiscoveries
-            var upnpObjectsToKeep = [AbstractUPnP]()
+            let upnpObjectsToKeep = [AbstractUPnP]()
             for ssdpDiscovery in ssdpDiscoveries {
                 // only concerned with objects with a device or service type urn
 
@@ -234,7 +234,7 @@ extension UPnPRegistry: SSDPDiscoveryAdapterDelegate {
     }
     
     private func getUPnPDescription(forSSDPDiscovery ssdpDiscovery: SSDPDiscovery) {
-        self._upnpObjectDescriptionSessionManager.GET(ssdpDiscovery.descriptionURL.absoluteString, parameters: nil, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject?) -> Void in
+        self._upnpObjectDescriptionSessionManager.GET(ssdpDiscovery.descriptionURL.absoluteString!, parameters: nil, success: { (task: NSURLSessionDataTask!, responseObject: AnyObject?) -> Void in
             dispatch_barrier_async(self._concurrentUPnPObjectQueue, { () -> Void in
                 if let xmlData = responseObject as? NSData {
                     // if ssdp object is not in cache then discard
