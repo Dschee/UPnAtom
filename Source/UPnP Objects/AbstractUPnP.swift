@@ -42,12 +42,10 @@ public class AbstractUPnP: NSObject {
         self.descriptionURL = descriptionURL
         super.init()
         
-        /*
         // only deal with UPnP object's with URN's for now, i.e. is either a device or service
         guard let urn = usn.urn where !urn.isEmpty else {
             return nil
         }
-        */
     }
 }
 

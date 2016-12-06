@@ -55,7 +55,8 @@ enum SSDPType: RawRepresentable {
     typealias RawValue = String
     
     init?(rawValue: RawValue) {
-        if rawValue == "roku:ecp" {
+        
+        if rawValue == SSDPTypeConstant.Roku.rawValue {
             self = .Roku
         }
         
@@ -122,7 +123,10 @@ func ==(lhs: SSDPType, rhs: SSDPType) -> Bool {
     switch (lhs, rhs) {
     case (.Roku, .Roku):
         return true
-        
+    default:
+        return false
+    }
+    
     /*
     case (.All, .All):
         return true
@@ -138,5 +142,4 @@ func ==(lhs: SSDPType, rhs: SSDPType) -> Bool {
         return false
     */
         
-    }
 }

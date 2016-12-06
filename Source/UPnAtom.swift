@@ -78,7 +78,7 @@ public class UPnAtom: NSObject {
     class func upnpClasses() -> [(upnpClass: AbstractUPnP.Type, forURN: String)] {
         return [
             
-            (upnpClass: Roku.self, forURN: "roku:ecp")
+            (upnpClass: Roku.self, forURN: SSDPTypeConstant.Roku.rawValue)
 
             /*
             (upnpClass: MediaRenderer1Device.self, forURN: "urn:schemas-upnp-org:device:MediaRenderer:1"),

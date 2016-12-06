@@ -308,12 +308,10 @@ class UPnPDeviceParser: AbstractSAXXMLParser {
     private func didEndParsingDeviceElement() {
         let poppedDevice = self._deviceStack.pop()
         
-        //        self._upnpDevice.uuid = "uuid:roku:ecp:5S4649361143"
-        //        poppedDevice.udn = "uuid:058c4184-2405-1082-80b7-b8a1754cf1a9"
+        // if self._upnpDevice.uuid == poppedDevice.udn {
         
-        
-        //if self._upnpDevice.uuid == poppedDevice.udn {
+        if self._upnpDevice.udn.rangeOfString(poppedDevice.serialNumber!) != nil {
             _foundDevice = poppedDevice
-        //}
+        }
     }
 }

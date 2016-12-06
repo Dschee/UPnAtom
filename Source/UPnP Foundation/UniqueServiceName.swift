@@ -48,7 +48,23 @@ public class UniqueServiceName: NSObject, RawRepresentable {
         self.uuid = uuid
         
         rootDevice = UniqueServiceName.isRootDevice(usn: rawValue)
-        urn = UniqueServiceName.urn(usn: rawValue)
+        
+        // Check if urn is not nil
+        if UniqueServiceName.urn(usn: rawValue) != nil {
+            self.urn = UniqueServiceName.urn(usn: rawValue)
+        }
+        
+        else {
+            // Check if roku
+            if self.uuid.rangeOfString(SSDPTypeConstant.Roku.rawValue) != nil {
+                self.urn = SSDPTypeConstant.Roku.rawValue
+            }
+
+            else {
+                self.urn = nil
+            }
+        }
+        
         super.init()
     }
     

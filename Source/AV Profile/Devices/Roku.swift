@@ -24,6 +24,10 @@
 import Foundation
 
 public class Roku: AbstractUPnPDevice {
+
+    public var rokuTransportService: RokuTransportService? {
+        return service(forURN: SSDPTypeConstant.Roku.rawValue) as? RokuTransportService
+    }
     
     /*
     public var avTransportService: AVTransport1Service? {

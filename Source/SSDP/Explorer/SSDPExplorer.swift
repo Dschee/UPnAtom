@@ -111,7 +111,7 @@ class SSDPExplorer {
         _types = types
         for type in types {
             if let data = searchRequestData(forType: type) {
-                print(">>>> SENDING SEARCH REQUEST\n\(NSString(data: data, encoding: NSUTF8StringEncoding))")
+//                println(">>>> SENDING SEARCH REQUEST\n\(NSString(data: data, encoding: NSUTF8StringEncoding))")
                 unicastSocket.sendData(data, toHost: SSDPExplorer._multicastGroupAddress, port: SSDPExplorer._multicastUDPPort, withTimeout: -1, tag: type.hashValue)
             }
         }
@@ -156,6 +156,9 @@ class SSDPExplorer {
     }
     
     private func handleSSDPMessage(messageType: SSDPMessageType, headers: [String: String]) {
+        
+        //print("SSDP response headers: \(headers)")
+
         if let usnRawValue = headers["usn"],
             usn = UniqueServiceName(rawValue: usnRawValue),
             locationString = headers["location"],
@@ -164,9 +167,6 @@ class SSDPExplorer {
             /// ST = Search Target - SSDP discovered as a result of using M-SEARCH requests
             ssdpTypeRawValue = (headers["st"] != nil ? headers["st"] : headers["nt"]),
             ssdpType = SSDPType(rawValue: ssdpTypeRawValue) where _types.indexOf(ssdpType) != nil {
-            
-                print("SSDP response headers: \(headers)")
-
                 LogVerbose("SSDP response headers: \(headers)")
                 let discovery = SSDPDiscovery(usn: usn, descriptionURL: locationURL, type: ssdpType)
                 switch messageType {
