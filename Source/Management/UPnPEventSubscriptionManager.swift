@@ -128,14 +128,20 @@ class UPnPEventSubscriptionManager {
                 GCDWebServer.setLogLevel(Int32(3))
                 
                 self._httpServer.addHandlerForMethod("NOTIFY", path: self._eventCallBackPath, requestClass: GCDWebServerDataRequest.self) { (request: GCDWebServerRequest!) -> GCDWebServerResponse! in
-                    if let dataRequest = request as? GCDWebServerDataRequest,
-                        headers = dataRequest.headers as? [String: AnyObject],
-                        sid = headers["SID"] as? String,
-                        data = dataRequest.data {
-                            LogVerbose("NOTIFY request: Final body with size: \(data.length)\nAll headers: \(headers)")
-                            self.handleIncomingEvent(subscriptionID: sid, eventData: data)
+                    var requestData:NSData?
+                    if let requestData = requestData  {
+                        do {
+                            if let dataRequest = request as? GCDWebServerDataRequest,
+                                let headers = dataRequest.headers as? [String: AnyObject],
+                                let sid = headers["SID"] as? String,
+                                let data = dataRequest.data as? NSData {
+                                LogVerbose("NOTIFY request: Final body with size: \(data.length)\nAll headers: \(headers)")
+                                self.handleIncomingEvent(subscriptionID: sid, eventData: data)
+                            }
+                        } catch {
+                            print("Error \(error)")
+                        }
                     }
-                    
                     return GCDWebServerResponse()
                 }
             })
