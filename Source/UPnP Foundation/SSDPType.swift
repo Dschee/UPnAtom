@@ -42,7 +42,7 @@ public enum SSDPTypeConstant: String {
 
 enum SSDPType: RawRepresentable {
     
-    case Roku
+    case roku
     
     /*
     case All
@@ -57,7 +57,7 @@ enum SSDPType: RawRepresentable {
     init?(rawValue: RawValue) {
         
         if rawValue == SSDPTypeConstant.Roku.rawValue {
-            self = .Roku
+            self = .roku
         }
         
         /*
@@ -86,7 +86,7 @@ enum SSDPType: RawRepresentable {
     
     var rawValue: RawValue {
         switch self {
-        case .Roku:
+        case .roku:
             return "roku:ecp"
             
         /*
@@ -121,10 +121,10 @@ extension SSDPType: Hashable {
 
 func ==(lhs: SSDPType, rhs: SSDPType) -> Bool {
     switch (lhs, rhs) {
-    case (.Roku, .Roku):
+    case (.roku, .roku):
         return true
-    default:
-        return false
+    //default:
+    //    return false
     }
     
     /*
