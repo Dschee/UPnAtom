@@ -37,7 +37,7 @@ open class SAXXMLParserElementObservation {
         self.didEndParsingElement = didEndParsingElement
         self.foundInnerText = foundInnerText
         
-        self.didStartParsingElement = {[unowned self] (elementName: String, attributeDict: [AnyHashable: Any]!) -> Void in
+        self.didStartParsingElement = {[unowned self] (elementName: String, attributeDict: [AnyHashable: Any]?) -> Void in
             // reset _innerText at the start of the element parse
             self.innerText = nil
             
