@@ -23,7 +23,7 @@
 
 import Foundation
 
-public class RokuTransportService: AbstractUPnPService {
+open class RokuTransportService: AbstractUPnPService {
     
     /*
     public func setAVTransportURI(instanceID instanceID: String, currentURI: String, currentURIMetadata: String, success: () -> Void, failure:(error: NSError) -> Void) {
@@ -37,7 +37,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -55,7 +55,7 @@ public class RokuTransportService: AbstractUPnPService {
                 self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -77,7 +77,7 @@ public class RokuTransportService: AbstractUPnPService {
             
             success(numberOfTracks: numberOfTracks ?? 0, mediaDuration: responseObject?["MediaDuration"], currentURI: responseObject?["CurrentURI"], currentURIMetaData: responseObject?["CurrentURIMetaData"], nextURI: responseObject?["NextURI"], nextURIMetaData: responseObject?["NextURIMetaData"], playMedium: responseObject?["PlayMedium"], recordMedium: responseObject?["RecordMedium"], writeStatus: responseObject?["WriteStatus"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -90,7 +90,7 @@ public class RokuTransportService: AbstractUPnPService {
             let responseObject = responseObject as? [String: String]
             success(currentTransportState: responseObject?["CurrentTransportState"], currentTransportStatus: responseObject?["CurrentTransportStatus"], currentSpeed: responseObject?["CurrentSpeed"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -103,7 +103,7 @@ public class RokuTransportService: AbstractUPnPService {
             let responseObject = responseObject as? [String: String]
             success(track: responseObject?["Track"], trackDuration: responseObject?["TrackDuration"], trackMetaData: responseObject?["TrackMetaData"], trackURI: responseObject?["TrackURI"], relativeTime: responseObject?["RelTime"], absoluteTime: responseObject?["AbsTime"], relativeCount: responseObject?["RelCount"], absoluteCount: responseObject?["AbsCount"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -116,7 +116,7 @@ public class RokuTransportService: AbstractUPnPService {
             let responseObject = responseObject as? [String: String]
             success(playMedia: responseObject?["PlayMedia"], recordMedia: responseObject?["RecMedia"], recordQualityModes: responseObject?["RecQualityModes"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -129,7 +129,7 @@ public class RokuTransportService: AbstractUPnPService {
             let responseObject = responseObject as? [String: String]
             success(playMode: responseObject?["PlayMode"], recordQualityMode: responseObject?["RecQualityMode"])
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -141,7 +141,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -155,7 +155,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in            
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -170,7 +170,7 @@ public class RokuTransportService: AbstractUPnPService {
                 self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -189,7 +189,7 @@ public class RokuTransportService: AbstractUPnPService {
                 self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -208,7 +208,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -220,7 +220,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -232,7 +232,7 @@ public class RokuTransportService: AbstractUPnPService {
         soapSessionManager.POST(controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
             success()
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error: error)
+                failure(error as NSError)
         })
     }
     
@@ -249,7 +249,7 @@ public class RokuTransportService: AbstractUPnPService {
                 self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -270,7 +270,7 @@ public class RokuTransportService: AbstractUPnPService {
                 self.soapSessionManager.POST(self.controlURL.absoluteString!, parameters: parameters, success: { (task: NSURLSessionDataTask, responseObject: AnyObject?) -> Void in
                     success()
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -290,7 +290,7 @@ public class RokuTransportService: AbstractUPnPService {
                     let responseObject = responseObject as? [String: String]
                     success(actions: responseObject?["Actions"])
                     }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                        failure(error: error)
+                        failure(error as NSError)
                 })
             } else {
                 failure(error: createError("SOAP action '\(parameters.soapAction)' unsupported by service \(self.urn) on device \(self.device?.friendlyName)"))
@@ -313,8 +313,8 @@ extension AbstractUPnP {
 
 /// overrides ExtendedPrintable protocol implementation
 extension RokuTransportService {
-    override public var className: String { return "\(self.dynamicType)" }
-    override public var description: String {
+    override public var className: String { return "\(type(of: self))" }
+    override open var description: String {
         var properties = PropertyPrinter()
         properties.add(super.className, property: super.description)
         return properties.description

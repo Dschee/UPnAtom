@@ -23,9 +23,9 @@
 
 import Foundation
 
-public class Roku: AbstractUPnPDevice {
+open class Roku: AbstractUPnPDevice {
 
-    public var rokuTransportService: RokuTransportService? {
+    open var rokuTransportService: RokuTransportService? {
         return service(forURN: SSDPTypeConstant.Roku.rawValue) as? RokuTransportService
     }
     
@@ -53,8 +53,8 @@ extension AbstractUPnP {
 
 /// overrides ExtendedPrintable protocol implementation
 extension Roku {
-    override public var className: String { return "\(self.dynamicType)" }
-    override public var description: String {
+    override public var className: String { return "\(type(of: self))" }
+    override open var description: String {
         var properties = PropertyPrinter()
         properties.add(super.className, property: super.description)
         return properties.description
