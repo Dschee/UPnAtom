@@ -64,7 +64,7 @@ open class ContentDirectory1Object: NSObject {
 
 extension ContentDirectory1Object: ExtendedPrintable {
     #if os(iOS)
-    public var className: String { return "\(type(of: self))" }
+    @objc public var className: String { return "\(type(of: self))" }
     #elseif os(OSX) // NSObject.className actually exists on OSX! Who knew.
     override public var className: String { return "\(type(of: self))" }
     #endif
