@@ -84,6 +84,8 @@ class SSDPExplorer {
         // Configure multicast socket
         // Bind to port without defining the interface to bind to the address INADDR_ANY (0.0.0.0). This prevents any address filtering which allows datagrams sent to the multicast group to be receives
         do {
+            // NOTE: FIX ADDED BY YIDIO - Set enable reuse port to true
+            try multicastSocket?.enableReusePort(true)
             try multicastSocket?.bind(toPort: SSDPExplorer._multicastUDPPort)
         } catch {
             stopExploring()
