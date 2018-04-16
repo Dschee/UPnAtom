@@ -111,7 +111,7 @@ extension AbstractUPnP {
 }
 
 /// overrides ExtendedPrintable protocol implementation
-extension ConnectionManager1Service {
+@objc extension ConnectionManager1Service {
     override public var className: String { return "\(type(of: self))" }
     override open var description: String {
         var properties = PropertyPrinter()

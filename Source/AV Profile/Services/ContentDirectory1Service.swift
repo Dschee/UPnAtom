@@ -24,7 +24,7 @@
 import Foundation
 import Ono
 
-open class ContentDirectory1Service: AbstractUPnPService {
+@objc open class ContentDirectory1Service: AbstractUPnPService {
     open func getSearchCapabilities(_ success: @escaping (_ searchCapabilities: String?) -> Void, failure:@escaping (_ error: NSError) -> Void) {
         let parameters = SOAPRequestSerializer.Parameters(soapAction: "GetSearchCapabilities", serviceURN: urn, arguments: nil)
         
@@ -332,7 +332,7 @@ extension AbstractUPnP {
 }
 
 /// overrides ExtendedPrintable protocol implementation
-extension ContentDirectory1Service {
+@objc extension ContentDirectory1Service {
     override public var className: String { return "\(type(of: self))" }
     override open var description: String {
         var properties = PropertyPrinter()

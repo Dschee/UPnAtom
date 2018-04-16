@@ -309,7 +309,7 @@ extension AbstractUPnP {
 }
 
 /// overrides ExtendedPrintable protocol implementation
-extension AVTransport1Service {
+@objc extension AVTransport1Service {
     override public var className: String { return "\(type(of: self))" }
     override open var description: String {
         var properties = PropertyPrinter()

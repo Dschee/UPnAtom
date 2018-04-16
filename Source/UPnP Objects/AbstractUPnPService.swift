@@ -25,7 +25,7 @@ import Foundation
 import Ono
 import AFNetworking
 
-open class AbstractUPnPService: AbstractUPnP {
+@objc open class AbstractUPnPService: AbstractUPnP {
     // public
     open var serviceType: String {
         return urn
@@ -269,21 +269,21 @@ extension AbstractUPnPService: UPnPEventSubscriber {
     }
 }
 
-extension AbstractUPnPService.EventObserver: Equatable { }
+@objc extension AbstractUPnPService.EventObserver: Equatable { }
 
 private func ==(lhs: AbstractUPnPService.EventObserver, rhs: AbstractUPnPService.EventObserver) -> Bool {
     return lhs.notificationCenterObserver === rhs.notificationCenterObserver
 }
 
 /// for objective-c type checking
-extension AbstractUPnP {
+@objc extension AbstractUPnP {
     public func isAbstractUPnPService() -> Bool {
         return self is AbstractUPnPService
     }
 }
 
 /// overrides ExtendedPrintable protocol implementation
-extension AbstractUPnPService {
+@objc extension AbstractUPnPService {
     override public var className: String { return "\(type(of: self))" }
     override open var description: String {
         var properties = PropertyPrinter()
@@ -302,7 +302,7 @@ extension AbstractUPnPService {
     func device(forUSN usn: UniqueServiceName) -> AbstractUPnPDevice?
 }
 
-class UPnPServiceParser: AbstractSAXXMLParser {
+@objc class UPnPServiceParser: AbstractSAXXMLParser {
     /// Using a class instead of struct since it's much easier and safer to continuously update from references rather than values directly as it's easy to accidentally update a copy and not the original.
     class ParserUPnPService {
         var baseURL: URL?

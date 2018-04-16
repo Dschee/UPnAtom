@@ -24,7 +24,7 @@
 import Foundation
 
 /// TODO: For now rooting to NSObject to expose to Objective-C, see Github issue #16
-open class AbstractUPnP: NSObject {
+@objc open class AbstractUPnP: NSObject {
     open var uuid: String {
         return usn.uuid
     }
@@ -53,7 +53,7 @@ public func ==(lhs: AbstractUPnP, rhs: AbstractUPnP) -> Bool {
     return lhs.usn == rhs.usn
 }
 
-extension AbstractUPnP {
+@objc extension AbstractUPnP {
     override open var hashValue: Int {
         return usn.hashValue
     }
@@ -72,7 +72,7 @@ extension AbstractUPnP {
     }
 }
 
-extension AbstractUPnP: ExtendedPrintable {
+@objc extension AbstractUPnP: ExtendedPrintable {
     #if os(iOS)
     public var className: String { return "\(type(of: self))" }
     #elseif os(OSX) // NSObject.className actually exists on OSX! Who knew.
