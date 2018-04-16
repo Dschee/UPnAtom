@@ -36,15 +36,6 @@ class Player {
             didSetRenderer(oldRenderer: oldValue, newRenderer: mediaRenderer)
         }
     }
-<<<<<<< HEAD
-    private(set) var playPauseButton: UIBarButtonItem! // TODO: Should ideally be a constant, see Github issue #10
-    private(set) var stopButton: UIBarButtonItem! // TODO: Should ideally be a constant, see Github issue #10
-    
-    private var _position: Int = 0
-    private var _playlist: [ContentDirectory1Object]?
-    private var _avTransportEventObserver: AnyObject?
-    private var _playerState: PlayerState = PlayerState.Stopped {
-=======
     fileprivate(set) var playPauseButton: UIBarButtonItem! // TODO: Should ideally be a constant, see Github issue #10
     fileprivate(set) var stopButton: UIBarButtonItem! // TODO: Should ideally be a constant, see Github issue #10
     
@@ -52,28 +43,10 @@ class Player {
     fileprivate var _playlist: [ContentDirectory1Object]?
     fileprivate var _avTransportEventObserver: AnyObject?
     fileprivate var _playerState: PlayerState = PlayerState.stopped {
->>>>>>> swift3
         didSet {
             playerStateDidChange()
         }
     }
-<<<<<<< HEAD
-    private var _avTransportInstanceID = "0"
-    
-    enum PlayerState {
-        case Unknown
-        case Stopped
-        case Playing
-        case Paused
-    }
-    
-    init() {
-        playPauseButton = UIBarButtonItem(image: UIImage(named: "play_button"), style: .Plain, target: self, action: #selector(Player.playPauseButtonTapped(_:)))
-        stopButton = UIBarButtonItem(image: UIImage(named: "stop_button"), style: .Plain, target: self, action: #selector(Player.stopButtonTapped(_:)))
-    }
-    
-    func startPlayback(playlist: [ContentDirectory1Object], position: Int) {
-=======
     fileprivate var _avTransportInstanceID = "0"
     
     enum PlayerState {
@@ -89,27 +62,18 @@ class Player {
     }
     
     func startPlayback(_ playlist: [ContentDirectory1Object], position: Int) {
->>>>>>> swift3
         _playlist = playlist
         
         startPlayback(position: position)
     }
     
-<<<<<<< HEAD
-    func startPlayback(position position: Int) {
-=======
     func startPlayback(position: Int) {
->>>>>>> swift3
         _position = position
         
         if let item = _playlist?[position] as? ContentDirectory1VideoItem {
             let uri = item.resourceURL.absoluteString
             let instanceID = _avTransportInstanceID
-<<<<<<< HEAD
-            mediaRenderer?.avTransportService?.setAVTransportURI(instanceID: instanceID, currentURI: uri!, currentURIMetadata: "", success: { () -> Void in
-=======
             mediaRenderer?.avTransportService?.setAVTransportURI(instanceID: instanceID, currentURI: uri, currentURIMetadata: "", success: { () -> Void in
->>>>>>> swift3
                 print("URI set succeeded!")
                 self.play({ () -> Void in
                     print("Play command succeeded!")
@@ -123,29 +87,17 @@ class Player {
         }
     }
     
-<<<<<<< HEAD
-    @objc private func playPauseButtonTapped(sender: AnyObject) {
-        print("play/pause button tapped")
-        
-        switch _playerState {
-        case .Playing:
-=======
     @objc fileprivate func playPauseButtonTapped(_ sender: AnyObject) {
         print("play/pause button tapped")
         
         switch _playerState {
         case .playing:
->>>>>>> swift3
             pause({ () -> Void in
                 print("Pause command succeeded!")
             }, failure: { (error) -> Void in
                 print("Pause command failed: \(error)")
             })
-<<<<<<< HEAD
-        case .Paused, .Stopped:
-=======
         case .paused, .stopped:
->>>>>>> swift3
             play({ () -> Void in
                 print("Play command succeeded!")
                 }, failure: { (error) -> Void in
@@ -156,62 +108,28 @@ class Player {
         }
     }
     
-<<<<<<< HEAD
-    @objc private func stopButtonTapped(sender: AnyObject) {
-        print("stop button tapped")
-        
-        switch _playerState {
-        case .Playing, .Paused:
-=======
     @objc fileprivate func stopButtonTapped(_ sender: AnyObject) {
         print("stop button tapped")
         
         switch _playerState {
         case .playing, .paused:
->>>>>>> swift3
             stop({ () -> Void in
                 print("Stop command succeeded!")
                 }, failure: { (error) -> Void in
                     print("Stop command failed: \(error)")
             })
-<<<<<<< HEAD
-        case .Stopped:
-=======
         case .stopped:
->>>>>>> swift3
             print("Stop button cannot be used in this state.")
         default:
             print("Stop button cannot be used in this state.")
         }
     }
     
-<<<<<<< HEAD
-    private func didSetRenderer(oldRenderer oldRenderer: MediaRenderer1Device?, newRenderer: MediaRenderer1Device?) {
-=======
     fileprivate func didSetRenderer(oldRenderer: MediaRenderer1Device?, newRenderer: MediaRenderer1Device?) {
->>>>>>> swift3
         if let avTransportEventObserver: AnyObject = _avTransportEventObserver {
             oldRenderer?.avTransportService?.removeEventObserver(avTransportEventObserver)
         }
         
-<<<<<<< HEAD
-        _avTransportEventObserver = newRenderer?.avTransportService?.addEventObserver(NSOperationQueue.currentQueue(), callBackBlock: { (event: UPnPEvent) -> Void in
-            if let avTransportEvent = event as? AVTransport1Event,
-                transportState = (avTransportEvent.instanceState["TransportState"] as? String)?.lowercaseString {
-                    print("\(event.service?.className) Event: \(avTransportEvent.instanceState)")
-                    print("transport state: \(transportState)")
-                    if transportState.rangeOfString("playing") != nil {
-                        self._playerState = .Playing
-                    }
-                    else if transportState.rangeOfString("paused") != nil {
-                        self._playerState = .Paused
-                    }
-                    else if transportState.rangeOfString("stopped") != nil {
-                        self._playerState = .Stopped
-                    }
-                    else {
-                        self._playerState = .Unknown
-=======
         _avTransportEventObserver = newRenderer?.avTransportService?.addEventObserver(OperationQueue.current, callBackBlock: { (event: UPnPEvent) -> Void in
             if let avTransportEvent = event as? AVTransport1Event,
                 let transportState = (avTransportEvent.instanceState["TransportState"] as? String)?.lowercased() {
@@ -228,40 +146,20 @@ class Player {
                     }
                     else {
                         self._playerState = .unknown
->>>>>>> swift3
                     }
             }
         })
     }
     
-<<<<<<< HEAD
-    private func playerStateDidChange() {
-        switch _playerState {
-        case .Stopped, .Paused, .Unknown:
-            playPauseButton.image = UIImage(named: "play_button")
-        case .Playing:
-=======
     fileprivate func playerStateDidChange() {
         switch _playerState {
         case .stopped, .paused, .unknown:
             playPauseButton.image = UIImage(named: "play_button")
         case .playing:
->>>>>>> swift3
             playPauseButton.image = UIImage(named: "pause_button")
         }
     }
     
-<<<<<<< HEAD
-    private func play(success: () -> Void, failure:(error: NSError) -> Void) {
-        self.mediaRenderer?.avTransportService?.play(instanceID: _avTransportInstanceID, speed: "1", success: success, failure: failure)
-    }
-    
-    private func pause(success: () -> Void, failure:(error: NSError) -> Void) {
-        self.mediaRenderer?.avTransportService?.pause(instanceID: _avTransportInstanceID, success: success, failure: failure)
-    }
-    
-    private func stop(success: () -> Void, failure:(error: NSError) -> Void) {
-=======
     fileprivate func play(_ success: @escaping () -> Void, failure:@escaping (_ error: NSError) -> Void) {
         self.mediaRenderer?.avTransportService?.play(instanceID: _avTransportInstanceID, speed: "1", success: success, failure: failure)
     }
@@ -271,7 +169,6 @@ class Player {
     }
     
     fileprivate func stop(_ success: @escaping () -> Void, failure:@escaping (_ error: NSError) -> Void) {
->>>>>>> swift3
         self.mediaRenderer?.avTransportService?.stop(instanceID: _avTransportInstanceID, success: success, failure: failure)
     }
 }

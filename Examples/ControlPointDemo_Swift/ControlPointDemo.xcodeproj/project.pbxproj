@@ -14,18 +14,10 @@
 		630532C51AAE3F95006AD1B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630532C31AAE3F95006AD1B6 /* LaunchScreen.xib */; };
 		63AF18B91AB4DC9F00543821 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AF18B81AB4DC9F00543821 /* FolderViewController.swift */; };
 		63AF18BB1AB4DE5F00543821 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AF18BA1AB4DE5F00543821 /* Player.swift */; };
-<<<<<<< HEAD
-		847C8C02339786B8AE3ECD5D /* Pods_ControlPointDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC1C01C83C194296DEE3F59 /* Pods_ControlPointDemo.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		23098891D4E4E92CE09F1AFF /* Pods-ControlPointDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlPointDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo.debug.xcconfig"; sourceTree = "<group>"; };
-=======
 		E52226DFAA56D46CBD256B9A /* Pods_ControlPointDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B925450DDCB992EE8A0FEC /* Pods_ControlPointDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
->>>>>>> swift3
 		630532B51AAE3F95006AD1B6 /* ControlPointDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlPointDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630532B91AAE3F95006AD1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		630532BA1AAE3F95006AD1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,16 +27,10 @@
 		630532C41AAE3F95006AD1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		63AF18B81AB4DC9F00543821 /* FolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
 		63AF18BA1AB4DE5F00543821 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		9BC578F97EEA4489C5D76F4C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DC1C01C83C194296DEE3F59 /* Pods_ControlPointDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ControlPointDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFA5EE2727231F70FC2B48D5 /* Pods-ControlPointDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlPointDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo.release.xcconfig"; sourceTree = "<group>"; };
-=======
 		8F904991D331D943DAC8F19E /* Pods-ControlPointDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlPointDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo.release.xcconfig"; sourceTree = "<group>"; };
 		91B925450DDCB992EE8A0FEC /* Pods_ControlPointDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ControlPointDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC578F97EEA4489C5D76F4C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7700F0CC39A1B199EA9195C /* Pods-ControlPointDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlPointDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo.debug.xcconfig"; sourceTree = "<group>"; };
->>>>>>> swift3
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				847C8C02339786B8AE3ECD5D /* Pods_ControlPointDemo.framework in Frameworks */,
-=======
 				E52226DFAA56D46CBD256B9A /* Pods_ControlPointDemo.framework in Frameworks */,
->>>>>>> swift3
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,11 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				9BC578F97EEA4489C5D76F4C /* Pods.framework */,
-<<<<<<< HEAD
-				9DC1C01C83C194296DEE3F59 /* Pods_ControlPointDemo.framework */,
-=======
 				91B925450DDCB992EE8A0FEC /* Pods_ControlPointDemo.framework */,
->>>>>>> swift3
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,11 +60,7 @@
 				630532B71AAE3F95006AD1B6 /* ControlPointDemo */,
 				630532B61AAE3F95006AD1B6 /* Products */,
 				1B6F1CBFC9A6D413FA74DEFF /* Frameworks */,
-<<<<<<< HEAD
-				D77AEFA6D1DE3D0C1A37DA4B /* Pods */,
-=======
 				9E1979B4A2380DECF0F51766 /* Pods */,
->>>>>>> swift3
 			);
 			sourceTree = "<group>";
 		};
@@ -121,19 +95,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		D77AEFA6D1DE3D0C1A37DA4B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				23098891D4E4E92CE09F1AFF /* Pods-ControlPointDemo.debug.xcconfig */,
-				CFA5EE2727231F70FC2B48D5 /* Pods-ControlPointDemo.release.xcconfig */,
-=======
 		9E1979B4A2380DECF0F51766 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				F7700F0CC39A1B199EA9195C /* Pods-ControlPointDemo.debug.xcconfig */,
 				8F904991D331D943DAC8F19E /* Pods-ControlPointDemo.release.xcconfig */,
->>>>>>> swift3
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -145,21 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 630532D41AAE3F95006AD1B6 /* Build configuration list for PBXNativeTarget "ControlPointDemo" */;
 			buildPhases = (
-<<<<<<< HEAD
-				E4FCF1B7DCE6480F1C8477C6 /* [CP] Check Pods Manifest.lock */,
-				630532B11AAE3F95006AD1B6 /* Sources */,
-				630532B21AAE3F95006AD1B6 /* Frameworks */,
-				630532B31AAE3F95006AD1B6 /* Resources */,
-				C0337DC7429A4CFF003A0A53 /* [CP] Embed Pods Frameworks */,
-				1A8881AFBACF28B59ECCA141 /* [CP] Copy Pods Resources */,
-=======
 				79183C770B4569280593D3A5 /* [CP] Check Pods Manifest.lock */,
 				630532B11AAE3F95006AD1B6 /* Sources */,
 				630532B21AAE3F95006AD1B6 /* Frameworks */,
 				630532B31AAE3F95006AD1B6 /* Resources */,
 				D8AC1DB2726CD100A76A09BB /* [CP] Embed Pods Frameworks */,
 				6F86627DF322721B04D4529A /* [CP] Copy Pods Resources */,
->>>>>>> swift3
 			);
 			buildRules = (
 			);
@@ -178,20 +135,12 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-<<<<<<< HEAD
-				LastUpgradeCheck = 0720;
-=======
 				LastUpgradeCheck = 0930;
->>>>>>> swift3
 				ORGANIZATIONNAME = "David Robles";
 				TargetAttributes = {
 					630532B41AAE3F95006AD1B6 = {
 						CreatedOnToolsVersion = 6.1.1;
-<<<<<<< HEAD
-						LastSwiftMigration = 0810;
-=======
 						LastSwiftMigration = 0930;
->>>>>>> swift3
 					};
 				};
 			};
@@ -227,11 +176,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-<<<<<<< HEAD
-		1A8881AFBACF28B59ECCA141 /* [CP] Copy Pods Resources */ = {
-=======
 		6F86627DF322721B04D4529A /* [CP] Copy Pods Resources */ = {
->>>>>>> swift3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,28 +191,12 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-<<<<<<< HEAD
-		C0337DC7429A4CFF003A0A53 /* [CP] Embed Pods Frameworks */ = {
-=======
 		79183C770B4569280593D3A5 /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> swift3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4FCF1B7DCE6480F1C8477C6 /* [CP] Check Pods Manifest.lock */ = {
-=======
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -281,21 +210,11 @@
 			showEnvVarsInLog = 0;
 		};
 		D8AC1DB2726CD100A76A09BB /* [CP] Embed Pods Frameworks */ = {
->>>>>>> swift3
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-=======
 				"${SRCROOT}/Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
@@ -314,7 +233,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ControlPointDemo/Pods-ControlPointDemo-frameworks.sh\"\n";
->>>>>>> swift3
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -361,15 +279,6 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-<<<<<<< HEAD
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-=======
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -387,7 +296,6 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
->>>>>>> swift3
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -396,10 +304,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-<<<<<<< HEAD
-=======
 				GCC_NO_COMMON_BLOCKS = YES;
->>>>>>> swift3
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -417,10 +322,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-<<<<<<< HEAD
-=======
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
->>>>>>> swift3
 			};
 			name = Debug;
 		};
@@ -432,15 +334,6 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-<<<<<<< HEAD
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-=======
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -458,7 +351,6 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
->>>>>>> swift3
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -466,10 +358,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-<<<<<<< HEAD
-=======
 				GCC_NO_COMMON_BLOCKS = YES;
->>>>>>> swift3
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -479,56 +368,37 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-<<<<<<< HEAD
-=======
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
->>>>>>> swift3
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		630532D51AAE3F95006AD1B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			baseConfigurationReference = 23098891D4E4E92CE09F1AFF /* Pods-ControlPointDemo.debug.xcconfig */;
-=======
 			baseConfigurationReference = F7700F0CC39A1B199EA9195C /* Pods-ControlPointDemo.debug.xcconfig */;
->>>>>>> swift3
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ControlPointDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				SWIFT_VERSION = 2.3;
-=======
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
->>>>>>> swift3
 			};
 			name = Debug;
 		};
 		630532D61AAE3F95006AD1B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			baseConfigurationReference = CFA5EE2727231F70FC2B48D5 /* Pods-ControlPointDemo.release.xcconfig */;
-=======
 			baseConfigurationReference = 8F904991D331D943DAC8F19E /* Pods-ControlPointDemo.release.xcconfig */;
->>>>>>> swift3
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ControlPointDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				SWIFT_VERSION = 2.3;
-=======
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
->>>>>>> swift3
 			};
 			name = Release;
 		};
