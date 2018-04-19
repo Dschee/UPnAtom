@@ -133,8 +133,8 @@ class UPnPEventSubscriptionManager {
                         let headers = dataRequest.headers as? [String: AnyObject],
                         let sid = headers["SID"] as? String {
                             let data = dataRequest.data
-                            LogVerbose("NOTIFY request: Final body with size: \(data?.count)\nAll headers: \(headers)")
-                            self.handleIncomingEvent(subscriptionID: sid, eventData: data!)
+                            LogVerbose("NOTIFY request: Final body with size: \(data.count)\nAll headers: \(headers)")
+                            self.handleIncomingEvent(subscriptionID: sid, eventData: data)
                     }
 
                     return GCDWebServerResponse()
