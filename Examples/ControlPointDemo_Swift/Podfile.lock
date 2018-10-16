@@ -27,9 +27,9 @@ PODS:
     - CocoaAsyncSocket/RunLoop
   - CocoaAsyncSocket/GCD (7.4.3)
   - CocoaAsyncSocket/RunLoop (7.4.3)
-  - GCDWebServer (3.3.3):
-    - GCDWebServer/Core (= 3.3.3)
-  - GCDWebServer/Core (3.3.3)
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
   - Ono (1.2.2)
   - UPnAtom (0.7.0):
     - AFNetworking (~> 2)
@@ -47,7 +47,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
-  GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
   UPnAtom: 1ad45fd7a4c1b40c33550746ba5386941ffad4f6
 
