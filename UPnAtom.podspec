@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 # AFNetworking causes problems with parent Yidio project since its included there also
 #s.dependency 'AFNetworking', '~> 3.1' # HTTP Client
 
-    s.dependency 'AFNetworking', '~> 2' # HTTP Client
+    s.dependency 'AFNetworking' # HTTP Client
 
   s.dependency 'Ono', '~> 1.2.0' # XML parsing
   s.dependency 'GCDWebServer', '~> 3.3' # UPnP event notification handling
